@@ -4,14 +4,14 @@ interface User {
 }
 
 function isPerson(obj: unknown): obj is User {
-    if (typeof obj === 'object' && obj !== null) {
-        if ('name' in obj && typeof obj.name === 'string') {
-            if ('age' in obj && typeof obj.age === 'number') {
-                return true;
-            }
-        }
-    }
-    return false;
+    return (
+        typeof obj === 'object' &&
+        obj !== null &&
+        'name' in obj &&
+        typeof obj.name === 'string' &&
+        'age' in obj &&
+        typeof obj.age === 'number'
+    );
 }
 
 const person = { name: 'John', age: 30 };
