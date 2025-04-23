@@ -69,3 +69,44 @@ const result = deepMerge(obj1, obj2);
   active: true
 }
 ```
+
+## Que 4 :
+
+```typescript
+function isPerson()... // your logic
+
+const person = { name: "John", age: 30 };
+if (isPerson(person)) {
+  // Now TypeScript knows `person` is `{ name: string; age: number }`
+}
+```
+
+## Que 5 :
+
+```typescript
+type A = GetRequiredKeys<{ a: string; b?: number; c: boolean }>;
+// Expected: "a" | "c"
+```
+
+## Que 6 :
+
+```typescript
+// Create a type that can help us get getters and setters from any given interface
+
+interface Attributes {
+ id: number;
+ name: string;
+ address: {
+    city: string;
+    street: string;
+ };
+}
+
+// example:
+type Setters = ?
+type Getters = ?
+
+const attributeSetters: Setters<Attributes> = {  setAddress: ({city,street}) => null,  setId: (value) => null,  setName: (value) => null,}
+
+const attributeGetters: Getters<Attributes> = {  getAddress: () => ({ city: '', street: '' }),  getId: () => 0,  getName: () => '',}
+```
